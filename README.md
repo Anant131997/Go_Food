@@ -20,7 +20,7 @@
 -----------------------------------------------
 
 
-Note -> There are 2 types of import/export
+Note -> There are 2 types of import/export.
 
 1) Default Import/Export
 
@@ -33,4 +33,5 @@ import Component from "path"
 export const Component
 import {Component} from "path"
 
-TMKC
+
+
