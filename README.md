@@ -34,4 +34,3 @@ export const Component
 import {Component} from "path"
 
 
-Lalalalalalala
