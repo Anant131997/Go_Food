@@ -54,7 +54,7 @@ const Body = () => {
     };
     
     return resturantList.length === 0 ? <Shimmer /> : (
-    <div className="bg-pink-50">
+    <div className="bg-pink-50 min-h-[210vh] flex flex-col">
         <div className="filter flex items-center mx-24 my-1">
             <div className="search p-4 m-4">
                 <input className="border border-solid border-black pl-2 pr-2 py-2 rounded-lg" type="text" value={searchInput} onChange={(event)=>{

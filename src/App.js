@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
+import Footer from "./components/Footer";
 
 
 // -----------------------------------------Other Names of Lazy Loading--------------------------------
@@ -43,7 +44,8 @@ const AppLayout = () => {
     <UserContext.Provider value={{loggedInUser:userName}}>
     <div>
         <Header />
-        <Outlet />  
+        <Outlet /> 
+        <Footer /> 
     </div>
     </UserContext.Provider>
     )
