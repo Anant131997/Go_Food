@@ -21,10 +21,10 @@ const ResturantCard = (props) => {
     } = resInfo?.info?.sla;
 
     return(
-    <div className="p-3 m-4 w-72 h-[430px] rounded-lg bg-white hover:shadow-md hover:scale-95 hover:transform origin-center transition-all duration-100 ease-in cursor-pointer">
+    <div className="p-3 m-4 w-72 h-[400px] rounded-lg bg-white hover:shadow-md hover:scale-95 hover:transform origin-center transition-all duration-100 ease-in cursor-pointer">
         <img className="mb-4 w-72 h-[200px] rounded-lg" src={CDN_URL+cloudinaryImageId} />
-        <h2 className="font-bold py-1 text-lg">{name}</h2>
-        <h4>{cuisines.join(", ")}</h4>
+        <h2 className="font-bold py-1 text-lg truncate">{name}</h2>
+        <h4 className="truncate">{cuisines.join(", ")}</h4>
         <h5>⭐{avgRating} stars</h5>
         <h5>{costForTwo}</h5>
         <h5>{deliveryTime} minutes</h5>
