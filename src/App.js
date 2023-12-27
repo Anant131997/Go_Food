@@ -12,6 +12,9 @@ import { lazy, Suspense } from "react";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 import Footer from "./components/Footer";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 
 // -----------------------------------------Other Names of Lazy Loading--------------------------------
@@ -32,7 +35,7 @@ const AppLayout = () => {
 
     useEffect(()=>{
         const data = {
-            name: "Anant"
+            name: "Anant_Singh"
         }
         setUserName(data.name);
     },[]);
@@ -41,6 +44,8 @@ const AppLayout = () => {
         // Context.provider is used to chenge any value set in the webapp using createContext and UseContext method.
         // Suppose we wrap only <Header> inside <Context.provider value={{loggedInUser:userName}}> </Context.provider> then the 
         // changes happen only in the header and all the other part of the page will have the default falue as was coming earlier. 
+    
+    <Provider store={appStore}>
     <UserContext.Provider value={{loggedInUser:userName}}>
     <div>
         <Header />
@@ -48,6 +53,7 @@ const AppLayout = () => {
         <Footer /> 
     </div>
     </UserContext.Provider>
+    </Provider>
     )
 }
 
@@ -76,6 +82,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restaurants/:id",
                 element: <RestaurantItems />
+            },
+            {
+                path: "/cart",
+                element: <Cart />
             }
         ],
         errorElement: <Error />

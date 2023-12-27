@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const MenuCategory = ({data, showItems, setShowIndex}) => {
 
-    let counter = 0;
     const [showAndCollapse, setShowAndCollapse] = useState(false);
 
     const handleClick = () =>{

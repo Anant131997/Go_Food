@@ -1,8 +1,14 @@
 import { CDN_URL } from "../utils/constants";
 import Image_not_available from "../images/Image_not_available.png";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const CategoryItemsList = ({items}) => {
-    console.log(items);
+
+    const dispatch = useDispatch();
+    const handleAddItem = (item) => {
+        dispatch(addItem(item));
+    }
     return(
         <div>
             {items.map((item)=>(
@@ -16,7 +22,10 @@ const CategoryItemsList = ({items}) => {
                     </div>
                     <div className="w-3/12 ml-4 my-2">
                         <div className="absolute ml-10 mt-[100px]">
-                            <button className="text-white shadow-lg px-4 py-2 rounded-md font-semibold bg-sky-700 hover:shadow-md hover:scale-95 hover:transform origin-center transition-all duration-100 ease-in active:bg-blue-800">Add +</button>
+                            <button className="text-white shadow-lg px-4 py-2 rounded-md font-semibold bg-sky-700 hover:shadow-md hover:scale-95 
+                            hover:transform origin-center transition-all duration-100 ease-in active:bg-blue-800" onClick={() =>handleAddItem(item)}>
+                                Add +
+                            </button>
                         </div>
                         <img src={item.card.info.imageId !== undefined ? CDN_URL+item.card.info.imageId : Image_not_available} className="w-40 h-32 rounded-lg mb-2"/> 
                     </div> 

@@ -15,7 +15,6 @@ const Body = () => {
     const [searchInput, setSearchInput] = useState("");
     const [filteredCards, setFilteredCards] = useState([]);
     const [showCrossIcon, setShowCrossIcon] = useState(false);
-    console.log(resturantList);
    
     useEffect(()=>{
         fetchdata();
@@ -24,11 +23,10 @@ const Body = () => {
     const fetchdata = async () => {
         try{
             const api_data = await fetch(ALL_RES_URL);
-            
             const json = await api_data.json();
-            setResturantList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setFilteredCards(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
             console.log(json);
+            setResturantList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setFilteredCards(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         }catch(error){
             console.error("Error fetching data:", error);
         }
@@ -52,11 +50,12 @@ const Body = () => {
         setShowCrossIcon(true);
         setSearchInput("");
     };
-    
+    {console.log(resturantList)}
+    // resturantList.length === 0 ? <Shimmer /> :
     return resturantList.length === 0 ? <Shimmer /> : (
     <div className="bg-pink-50 min-h-[210vh] flex flex-col">
         <div className="filter flex items-center mx-24 my-1">
-            <div className="search p-4 m-4">
+            <div className="search pl-4">
                 <input className="border border-solid border-black pl-2 pr-2 py-2 rounded-lg" type="text" value={searchInput} onChange={(event)=>{
                     return(
                     setSearchInput(event.target.value)
@@ -70,6 +69,17 @@ const Body = () => {
                 }}>Search</button>
 
             </div>
+            <div className="p-4 m-4">
+            {showCrossIcon && (
+                    <img className="mx-2 h-10 cursor-pointer" src={cancel} 
+                    onClick={() => {
+                        // Reset the filtered cards and hide the cross icon
+                        setFilteredCards(resturantList);
+                        setShowCrossIcon(false);
+                      }}
+                    />
+                )}
+            </div>
             <div className="flex items-center">
                 <button className="button px-4 py-2 bg-gray-500 rounded-lg text-white font-medium shadow-gray-500/50 hover:bg-gray-700"
                 onClick={()=>{
@@ -80,22 +90,12 @@ const Body = () => {
                     setFilteredCards(filteredList);
                     setShowCrossIcon(true);
                 }}>Top Rated Restaurants</button>
-                {showCrossIcon && (
-                    <img className="mx-2 h-10 cursor-pointer" src={cancel} 
-                    onClick={() => {
-                        // Reset the filtered cards and hide the cross icon
-                        setFilteredCards(resturantList);
-                        setShowCrossIcon(false);
-                      }}
-                    />
-                )}
             </div>
         </div>
         {/* {filteredCards.length === 0 ? <NoResFound /> : */}
         <div className="flex flex-wrap mx-24 h-80">
         {/* filteredCards.length === 0 ? <NoResFound /> : */}
-        {console.log(filteredCards.length)}
-            {filteredCards.length === 0 ? (<NoResFound />) : (filteredCards.map((resturant) =>(
+            {filteredCards.length === 0 ? <NoResFound /> : (filteredCards.map((resturant) =>(
                 <Link key={resturant.info.id} to={"/restaurants/"+ resturant.info.id} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <ResturantCard resInfo={resturant}/>
                 </Link>
