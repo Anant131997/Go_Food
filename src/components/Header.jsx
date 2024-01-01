@@ -21,7 +21,7 @@ const Header = () => {
             <Link to="/"><img className="w-56" src={logo} /></Link>
         </div>
         <div className="flex items-center">
-            <ul className="flex p-12 m-4 items-center">
+            <ul className="flex m-4 items-center">
                 <li className="px-4 font-semibold text-slate-800">{onlineStatus ? "Online : ✅" : "Offline : 🔴"}</li>
                 <li className="px-4 font-semibold text-slate-800"><Link to="/">Home</Link></li>
                 <li className="px-4 font-semibold text-slate-800"><Link to="/about">About Us</Link></li>
