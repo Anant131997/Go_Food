@@ -20,7 +20,7 @@
 -----------------------------------------------
 
 
-Note -> There are 2 types of import/export.
+# Note -> There are 2 types of import/export.
 
 1) Default Import/Export
 
@@ -47,7 +47,14 @@ import {Component} from "path"
    - Read data using Selector
    
 
+// "main": "tailwind.config.js"
+//"build": "parcel build index.html"
 
 
+
+# Types of testing (developer)
+ - Unit Testing
+ - Integeration Testion
+ - End to End Testing (e2e testing).
 
 
