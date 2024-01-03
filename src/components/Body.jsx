@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { ALL_RES_URL } from "../utils/constants";
 import  cancel  from "../images/cancel.png";
+import offline from "../images/offline.png";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import NoResFound from "./NoResFound";
 
@@ -36,9 +37,12 @@ const Body = () => {
 
     if(onlineStatus === false){
         return(
-            <h3 className="m-8 min-h-[57vh] font-bold">
-                Looks like you are offline. Please check your internet connection !!
-            </h3>
+            <div className="min-h-[66vh] flex flex-col justify-center items-center">
+                <img className="w-40 m-2" src={offline} />
+                <h3 className="font-bold">
+                    Looks like you are offline. Please check your internet connection !!
+                </h3>
+            </div>
         )
     }
 
