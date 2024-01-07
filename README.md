@@ -58,3 +58,14 @@ import {Component} from "path"
  - End to End Testing (e2e testing).
 
 
+# Setting up testing in our App
+ - Install React Testing Library
+ - Install Jest
+ - Install Babel
+ - configure Babel.config.js
+ - Configure Parcel Config File to disable default Babel Transpilation
+ - Jest Configuration (npx jest --init)
+ - Install jsdom library
+ - Install @babel/preset-react library - To make JSX work in test cases(wihout it, render function will not work in test.)
+ - Add @babel/preset-react inside our babel.config.js
+ - Install @testing-library/jest-dom using - (npm install -D @testing-library/jest-dom)

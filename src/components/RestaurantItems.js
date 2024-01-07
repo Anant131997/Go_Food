@@ -29,7 +29,7 @@ const RestaurantItems = () => {
     const {name, cuisines, costForTwoMessage, feeDetails, avgRating, sla, cloudinaryImageId} = restaurantData;
   
     return(
-        <div className="bg-pink-50 py-8">
+        <div className="bg-pink-50 py-8 min-h-[65.5vh]">
         <div className="mx-60">
             <div className="flex justify-between">
                 <div>
