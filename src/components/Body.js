@@ -26,8 +26,8 @@ const Body = () => {
             const api_data = await fetch(ALL_RES_URL);
             const json = await api_data.json();
             console.log(json);
-            setResturantList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setFilteredCards(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setResturantList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setFilteredCards(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         }catch(error){
             console.error("Error fetching data:", error);
         }
@@ -102,22 +102,10 @@ const Body = () => {
                     setFilteredCards(filteredList);
                     setShowCrossIcon(true);
                 }}>Top Rated Restaurants</button>
-                {/* <div className="py-4 ml-0">
-                    {showCrossIcon && (
-                    <img className="mx-2 my-0 h-10 cursor-pointer" src={cancel} 
-                    onClick={() => {
-                        // Reset the filtered cards and hide the cross icon
-                        setFilteredCards(resturantList);
-                        setShowCrossIcon(false);
-                      }}
-                    />
-                )}
-            </div> */}
             </div>
+
         </div>
-        {/* {filteredCards.length === 0 ? <NoResFound /> : */}
         <div className="flex flex-wrap mx-24 h-80">
-        {/* filteredCards.length === 0 ? <NoResFound /> : */}
             {filteredCards.length === 0 ? <NoResFound /> : (filteredCards.map((resturant) =>(
                 <Link key={resturant.info.id} to={"/restaurants/"+ resturant.info.id} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <ResturantCard resInfo={resturant}/>
@@ -125,7 +113,6 @@ const Body = () => {
             )) 
             )}
         </div>
-        {/* }  */}
     </div>
     )
 };
