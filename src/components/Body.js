@@ -37,10 +37,11 @@ const Body = () => {
 
     if(onlineStatus === false){
         return(
-            <div className="min-h-[66vh] flex flex-col justify-center items-center">
-                <img className="w-40 m-2" src={offline} />
-                <h3 className="font-bold">
-                    Looks like you are offline. Please check your internet connection !!
+            <div className="min-h-[74vh] flex flex-col justify-center items-center bg-pink-50">
+                <img className="w-52 mb-2" src={offline} />
+                <h3 className="font-bold text-gray-800 flex flex-col items-center justify-center">
+                    <span>Looks like you are offline.</span><br/> 
+                    <span className="mt-1">Please check your internet connection !!</span>
                 </h3>
             </div>
         )

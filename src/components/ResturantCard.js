@@ -6,6 +6,7 @@ import { useContext } from "react";
 
 const ResturantCard = (props) => {
     const { resInfo } = props;
+    // console.log(resInfo);
     const {loggedInUser} = useContext(userContext);
 
     const {
