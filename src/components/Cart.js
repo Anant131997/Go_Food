@@ -13,8 +13,8 @@ const Cart = () => {
 
     const cartItems = useSelector((store) => store.cart.items)
     return(
-        <div className="text-center m-4 p-4 min-h-[62vh]">
-            <h1 className="text-2xl font-bold">CART</h1>
+        <div className="text-center p-4 min-h-[71vh] bg-pink-50">
+            <h1 className="text-2xl font-bold mt-16">CART</h1>
             {cartItems.length === 0 ? 
             <h1 className="m-8 font-semibold text-lg text-slate-700">Your CART is empty, that doesn't mean your stomach should also be empty. <br />
             Go! grab someting yummy to eat 😋</h1> :
